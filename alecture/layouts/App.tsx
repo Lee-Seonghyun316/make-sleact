@@ -1,13 +1,16 @@
 import React from 'react';
-import loadable from '@loadable/component';
-// import { Switch, Route, Redirect } from 'react-router-dom';
-
-const LogIn = loadable(() => import('@pages/LogIn'));
-const SignUp = loadable(() => import('@pages/SignUp'));
-// const Workspace = loadable(() => import('@layouts/Workspace'));
+import { Switch, Route, Redirect } from 'react-router-dom';
+import LogIn from '@pages/LogIn';
+import SignUp from '@pages/SignUp';
 
 const App = () => {
-  return <div>좀만 참아주세요ㅠㅠ</div>;
+  return (
+    <switch>
+      <Redirect exact path="/" to="/Login" />
+      <Route path="/login" component={LogIn} />
+      <Route path="/signup" component={SignUp} />
+    </switch>
+  );
 };
 
 export default App;
